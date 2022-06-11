@@ -1,30 +1,33 @@
-import React, { useContext } from "react";
-import { NavLink as BaseNavLink } from "react-router-dom";
-import {
-  Dashboard,
-  Add,
-  MessageRounded,
-  Description,
-  GroupWork,
-} from "@material-ui/icons";
+import React from "react";
+import { NavLink as BaseNavLink, useNavigate } from "react-router-dom";
+import { Dashboard, Add, Description } from "@material-ui/icons";
+import { BookTwoTone } from "@mui/icons-material";
 //import logo from "../assets/logo.png";
 
 const navigation1 = [
-  { name: "Products", href: "/products", icon: Dashboard, exact: true },
-  { name: "Add New Product", href: "/addproduct", icon: Add, exact: true },
+  { name: "Shipments", href: "/dashboard", icon: Dashboard, exact: true },
+  { name: "Logs", href: "/logs", icon: BookTwoTone, exact: true },
+  { name: "Add New Shipment", href: "/add_shipment", icon: Add, exact: true },
 ];
 
 const secondaryNavigation = [
-  { name: "Logout", href: "/support", icon: Description, exact: false },
+  { name: "Logout", href: "/", icon: Description, exact: false },
 ];
 
 const DeskTopBar = () => {
-  // const { logoutHandler } = useContext(Store);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    navigate("/");
+  };
   return (
     <div className="hidden lg:flex lg:flex-shrink-0 font-body">
       <div className="flex flex-col w-64">
-        <div className="flex flex-col flex-grow bg-blue-900 pt-5 pb-4 overflow-y-auto relative">
-          <div className="flex items-center flex-shrink-0 -ml-10">
+        <div className="flex flex-col flex-grow bg-rose-900 pt-5 pb-4 overflow-y-auto relative">
+          <div
+            className="flex items-center flex-shrink-0 -ml-10"
+            onClick={() => navigate("/")}
+          >
             <img className="h-20 w-20 mb-5 mx-auto" src="" alt="logo" />
           </div>
           <nav
@@ -38,8 +41,8 @@ const DeskTopBar = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     [
-                      " hover:text-white hover:bg-blue-600 group flex items-center pl-8 px-2 py-4 text-lg  leading-6 font-medium rounded-md",
-                      isActive ? " text-blue-200 bg-blue-600" : "bg-white",
+                      " hover:text-white hover:bg-rose-600 group flex items-center pl-8 px-2 py-4 text-lg  leading-6 font-medium rounded-md",
+                      isActive ? " text-rose-200 bg-rose-600" : "bg-white",
                     ]
                       .filter(Boolean)
                       .join()
@@ -59,8 +62,8 @@ const DeskTopBar = () => {
                 {secondaryNavigation.map((item, i) => (
                   <div
                     key={i}
-                    //onClick={logoutHandler}
-                    className="group flex items-center py-2 text-lg leading-6 pl-6 font-light tracking-wider rounded-md text-white  hover:bg-blue-700"
+                    onClick={handleLogout}
+                    className="group flex items-center py-2 text-lg leading-6 pl-6 font-light tracking-wider rounded-md text-white  hover:bg-rose-700"
                   >
                     <item.icon
                       className="mr-4 h-6 w-6 text-white"

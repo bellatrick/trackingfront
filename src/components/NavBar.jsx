@@ -1,9 +1,8 @@
-
 import { Search } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
 const Container = styled.div`
   height: 60px;
 `;
@@ -53,13 +52,13 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-font-weight: bold;
+  font-weight: bold;
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
 `;
 
-const Navbar = () => {
+const Navbar = ({ setShowModal, showModal }) => {
   return (
     <Container>
       <Wrapper>
@@ -67,19 +66,23 @@ const Navbar = () => {
           <Logo>REX.</Logo>
         </Center>
         <Right>
-        <MenuItem>HOME</MenuItem>
-        <MenuItem>ABOUT</MenuItem>
-        <MenuItem>SERVICES</MenuItem>
-          <MenuItem>TRACK & TRACE</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
+          <MenuItem>HOME</MenuItem>
+          <MenuItem>ABOUT</MenuItem>
+          <MenuItem>SERVICES</MenuItem>
+          <MenuItem onClick={() => setShowModal(!showModal)}>
+            TRACK & TRACE
+          </MenuItem>
+          <MenuItem>
+            <Link to="/login">LOGIN</Link>
+          </MenuItem>
           <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
           <MenuItem>
-                  CONTACT!
-                  < ArrowForwardIcon />
+            CONTACT!
+            <ArrowForwardIcon />
           </MenuItem>
         </Right>
       </Wrapper>

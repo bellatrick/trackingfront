@@ -57,18 +57,24 @@
 .offering-container-text h3 {
   color: #f44336;
 }
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 810) {
+#services {
+  max-width: 100%;
+}
+}
+
+@media only screen and (max-width: 600px) {
   #services {
     max-width: 100%;
   }
-  .logistics-services small,
+  .logistics-services,
   p {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: -30rem;
+    margin: 2px;
     padding: 2rem;
   }
   .offerings-container {
@@ -76,6 +82,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .offering-container-text{
+    font-size: 1.5rem;
   }
   .offering-container-one {
     display: flex;
@@ -85,6 +94,37 @@
     text-align: center;
     padding: 2rem;
   }
-  .offering-container-text {
+}
+@media only screen and (max-width: 310px){
+  #services {
+    max-width: 100%;
+  }
+  .logistics-services,
+  p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: -10rem;
+    padding: 2rem;
+  }
+  .logistics-services,
+  small {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: -30rem;
+    padding: 2rem;
+    background-color: purple;
+  }
+  .offering-container-img {
+   width: 10rem;
+   height: 10rem;
+  }
+  .offering-container-text{
+    font-size: 1.5rem;
   }
 }

@@ -46,7 +46,6 @@ display: flex;
 align-items: center;
 `
 
-
 const Announcement = () => {
   return (
     <Container>

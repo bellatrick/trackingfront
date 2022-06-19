@@ -82,7 +82,9 @@
 .glance-about-para p {
   color: #fff;
   font-weight: 600;
+  margin: 2px;
 }
+
 @media screen and (max-width: 600px) {
   #about {
     max-width: 100%;
@@ -112,5 +114,30 @@
   .glance-about-img img {
     width: 5rem;
     height: 5rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .mission {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+  }
+  .mission-global {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: yellow;
+  }
+  .glance-about-para,
+  p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orangered;
+    align-items: center;
+    text-align: center;
+    margin-left: -30rem;
+    padding: 2rem;
   }
 }

@@ -1,38 +1,33 @@
-import img9 from "../assets/img9.jpg";
-import img12 from '../assets/img12.jpg'
-import img7 from "../assets/img7.jpg";
-import img3 from "../assets/img3.jpg";
-import img10 from "../assets/img10.jpg";
-import img6 from "../assets/img6.jpg";
 import Carousel from "react-material-ui-carousel";
+import { sliderItems } from "../data";
 export default function HeaderSection() {
-  const items = [
-    {
-      name: img12,
-      title: "All You Need To Buy!",
-    },
-   
-    {
-      name: img7,
-      title: "Groceries Shopping",
-    },
-    {
-      name: img3,
-      title: "Buy More, Pay Less!",
-    },
-    {
-      name: img6,
-      title: "All You Need In Your Wardrobe",
-    },
-    {
-      name: img9,
-      title: "For All Your Party Needs!",
-    },
-    {
-      name: img10,
-      title: "Buy Mobile Gadgets",
-    },
-  ];
+  // const items = [
+  //   {
+  //     name: img12,
+  //     title: "All You Need To Buy!",
+  //   },
+
+  //   {
+  //     name: img7,
+  //     title: "Groceries Shopping",
+  //   },
+  //   {
+  //     name: img3,
+  //     title: "Buy More, Pay Less!",
+  //   },
+  //   {
+  //     name: img6,
+  //     title: "All You Need In Your Wardrobe",
+  //   },
+  //   {
+  //     name: img9,
+  //     title: "For All Your Party Needs!",
+  //   },
+  //   {
+  //     name: img10,
+  //     title: "Buy Mobile Gadgets",
+  //   },
+  // ];
   return (
     <div className="relative bg-primary">
       <Carousel
@@ -44,7 +39,7 @@ export default function HeaderSection() {
         interval={4000}
         animation={"slide"}
       >
-        {items.map((item, i) => (
+        {sliderItems.map((item, i) => (
           <main
             key={i}
             className="lg:relative flex flex-col-reverse md:flex-row"
@@ -57,7 +52,8 @@ export default function HeaderSection() {
                   </span>{" "}
                 </h1>
                 <p className="mt-3 max-w-md mx-auto text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">
-                We reduce your stress at a very good price by helping you with providing goods and rendering services.
+                  We reduce your stress at a very good price by helping you with
+                  providing goods and rendering services.
                 </p>
                 <div className="mt-10 sm:flex sm:justify-center lg:justify-start px-16">
                   <div className="rounded-md shadow">

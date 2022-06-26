@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import NavBar from "../components/NavBar";
-import Announcement from "../components/Announcement";
-import Slider from "../components/Slider";
+import Banner from "../components/Banner";
+import HeroSection from "../components/HeroSection";
 import Footer from "../components/Footer";
-import Services from "../components/Services";
+import Features from "../components/Features";
 import About from "../components/About";
 import Modal from "../components/Modal";
-
 const Main = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <Announcement />
+      <Banner />
       <NavBar showModal={showModal} setShowModal={setShowModal} />
-      <Slider />
+      <HeroSection showModal={showModal} setShowModal={setShowModal}/>
       <About />
-      <Services />
+      <Features />
       <Footer />
       <Modal showModal={showModal} setShowModal={setShowModal} />
     </div>

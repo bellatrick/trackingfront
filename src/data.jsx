@@ -1,24 +1,35 @@
+import p1 from '../src/assets/p6.jpg'
+import p2 from '../src/assets/p2.jpg'
+import p3 from '../src/assets/p3.jpg'
+import p4 from '../src/assets/p4.jpg'
 export const sliderItems = [
   {
     id: 1,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: p1,
     title: "CONNECTING THE WORLD ONE SHIPMENT AT A TIME",
     desc: "We Take Care Of All Your Logistics Needs.",
-    bg: "f5fafd",
+    bg: "bg-pink-700",
   },
   {
     id: 2,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: p2,
     title: "EXCELLENCE IN SHIPPING AND LOGISTICS",
     desc: "Go beyond logistics, make the world go round and revolutionize business.",
-    bg: "fcf1ed",
+    bg: "bg-blue-700",
   },
   {
     id: 3,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: p3,
     title: "END TO END LOGISTIC SOLUTION",
     desc: "Your Unparalleled and trusted logistic company .",
-    bg: "fbf0f4",
+    bg: "bg-gray-700",
+  },
+  {
+    id: 3,
+    img: p4,
+    title: "END TO END LOGISTIC SOLUTION",
+    desc: "Your Unparalleled and trusted logistic company .",
+    bg: "bg-purple-700",
   },
 ];
 

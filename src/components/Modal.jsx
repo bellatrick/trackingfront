@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { XIcon } from "@heroicons/react/outline";
 import { Circle } from "@mui/icons-material";
 import { useMutation } from "react-query";
 import { getOneShippment, postLog } from "../Api";
@@ -80,7 +81,19 @@ export default function Modal({ showModal, setShowModal }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom w-full bg-white rounded-lg px-10 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-7xl sm:w-full sm:p-6">
+            <div className="inline-block align-bottom w-full bg-white rounded-lg px-10 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full sm:p-6">
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="-mr-1 flex p-2 rounded-md hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+                >
+                  <XIcon
+                    onClick={() => setShowModal(false)}
+                    className="h-6 w-6 text-pink-600"
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
               <div className="py-3 w-3/2 flex gap-8">
                 <CustomInput
                   type="text"
@@ -101,8 +114,9 @@ export default function Modal({ showModal, setShowModal }) {
                 >
                   <Button
                     text={"Track"}
-                    color={"bg-white"}
-                    colorHover={"bg-rose-100"}
+                    color={"bg-pink-200"}
+                    colorHover={"bg-pink-800"}
+                    spin_color={"bg-pink-800"}
                     spin={isLoading}
                     text_color={"text-gray-800"}
                     normal
@@ -263,7 +277,9 @@ export default function Modal({ showModal, setShowModal }) {
                   </div>
                 </div>
               ) : (
-                <p className="text-center">Please enter a tracking id</p>
+                <p className="text-center font-bold text-lg text-pink-700">
+                  {id.trim().length <= 0 && "Please enter a tracking id"}
+                </p>
               )}
             </div>
           </Transition.Child>

@@ -67,7 +67,7 @@
   #services {
     max-width: 100%;
   }
-  .logistics-services,
+  .logistics-services
   p {
     display: flex;
     flex-direction: column;

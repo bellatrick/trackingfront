@@ -1,5 +1,5 @@
 .about-header {
-  background-image: url("../assets/img4.jpg");
+  background-image: url("../assets/p1.jpg");
   height: 50vh;
   background-position: center;
   background-attachment: fixed;
@@ -15,44 +15,50 @@
   align-items: center;
 }
 .about-header-one p {
-  color: #fff;
-  font-size: 1.5rem;
+  color: #BE185D;
+  font-size: 1.9rem;
+  margin-bottom: 15px;
   font-weight: 600;
+ 
 }
 .about-header-one h3 {
-  color: #fff;
+  color: #BE185D;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+#about{
+  background-color: #1F2937;
 }
 .mission {
   display: flex;
-  flex-direction: row;
+  gap: 40px;
+  place-content: center;
   justify-content: center;
-  align-items: center;
   margin: 4rem;
+  color:white;
+
 }
-.mission-global {
-  margin: 2rem;
-}
+
 .mission-global h3 {
   text-transform: capitalize;
-  color: #f44336;
-}
-.mission-global h3:hover {
-  text-decoration: underline;
+  color: #BE185D;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 .mission-global h5 {
   cursor: pointer;
+  margin-bottom: 14px;
   transition: 400ms;
 }
-.mission-global h5:hover {
-  color: #f44336;
-}
+
 .mission-global p {
   color: #bdbdbd;
+  padding-bottom:34px;
+
 }
 .glance {
-  background-image: url("../assets/img1.jpg");
+  background-image: url("../assets/p8.jpg");
   height: 50rem;
   background-repeat: no-repeat;
   background-size: cover;
@@ -70,7 +76,7 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  padding: 2rem;
+
 }
 .glance-about-img {
   background: #fff;
@@ -84,24 +90,25 @@
   font-weight: 600;
   margin: 2px;
 }
+@media screen and ( max-width:900px) {
+  .mission{
+    flex-wrap: wrap;    
 
+  }
+  .mission-global {
+    width:500px;
+    margin-bottom: 40px;
+  }
+}
 @media screen and (max-width: 600px) {
   #about {
     max-width: 100%;
-  }
-  .mission {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
   .glance-about {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
   .glance-about-img {
     max-width: 100%;
@@ -114,30 +121,5 @@
   .glance-about-img img {
     width: 5rem;
     height: 5rem;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .mission {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: black;
-  }
-  .mission-global {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: yellow;
-  }
-  .glance-about-para,
-  p{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: orangered;
-    align-items: center;
-    text-align: center;
-    margin-left: -30rem;
-    padding: 2rem;
   }
 }

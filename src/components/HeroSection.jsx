@@ -3,20 +3,18 @@ import { Carousel } from "react-responsive-carousel";
 import { sliderItems } from "../data";
 export default function HeroSection({ showModal, setShowModal }) {
   return (
-    <div
-      id="home"
-      className="bg-gray-800 overflow-hidden max-h-screen pb-8 sm:pb-12 lg:pb-12"
-    >
+    <div className="bg-gray-800 overflow-hidden max-h-screen pb-8 sm:pb-12 lg:pb-12">
       <Carousel
         autoPlay={true}
         showThumbs={false}
         swipeable={true}
         stopAutoPlayOnHover={true}
-        interval={2000}
+        interval={3000}
         animation={"fade"}
         showIndicators={false}
         infiniteLoop={true}
         showStatus={false}
+        stopOnHover={true}
       >
         {sliderItems.map((slider, i) => (
           <div

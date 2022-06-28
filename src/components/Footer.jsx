@@ -6,17 +6,12 @@ const navigation = {
     { name: "Insights", href: "#" },
   ],
   support: [
-    { name: "Pricing", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-    { name: "API Status", href: "#" },
+    { name: "Email", href: "mailto:busayosamuel2016@gmail.com" },
+    { name: "Whatsapp", href: "https://wa.me/+2348108932677" },
   ],
   company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Partners", href: "#" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
   ],
 
   social: [
@@ -95,7 +90,7 @@ export default function Example() {
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-pink-600 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                   Solutions
                 </h3>
                 <ul className="mt-4 space-y-4">
@@ -112,7 +107,7 @@ export default function Example() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-pink-600 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                   Support
                 </h3>
                 <ul className="mt-4 space-y-4">
@@ -131,7 +126,7 @@ export default function Example() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-pink-600 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                   Company
                 </h3>
                 <ul className="mt-4 space-y-4">
@@ -153,7 +148,10 @@ export default function Example() {
             <p className="mt-4 text-base text-center text-gray-300">
               Shoot us a mail to contact us
             </p>
-            <form action="mailto:busayosamuel2016@gmail.com" className="mt-4 sm:flex sm:max-w-full">
+            <form
+              action="mailto:busayosamuel2016@gmail.com"
+              className="mt-4 sm:flex sm:max-w-full"
+            >
               <div className="mt-3 w-full rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"

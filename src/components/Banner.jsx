@@ -7,10 +7,7 @@ export default function Banner() {
   return (
     <div className={`bg-pink-700 hidden ${hide ? "sm:hidden" : "sm:block"}`}>
       <div className="max-w-7xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
-        <form
-          action="mailto:busayosamuel2016@gmail.com"
-          className="flex items-center justify-between flex-wrap"
-        >
+        <div className="flex items-center justify-between flex-wrap">
           <div className="w-0 flex-1 flex items-center">
             <span className="flex p-2 rounded-lg bg-pink-800">
               <SpeakerphoneIcon
@@ -31,13 +28,13 @@ export default function Banner() {
             Call +1 (678) 561‑2614
           </p>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-            <button
-              type="submit"
+            <a
+              href="mailto:busayosamuel2016@gmail.com"
               className="flex items-center justify-center cursor-pointer px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-pink-600 bg-white hover:bg-pink-50"
             >
               <MailOutlineOutlinedIcon />
               contact@fleetwoodscouriers.com
-            </button>
+            </a>
           </div>
           <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
             <button
@@ -51,7 +48,7 @@ export default function Banner() {
               />
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

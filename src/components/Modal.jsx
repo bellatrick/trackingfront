@@ -114,11 +114,11 @@ export default function Modal({ showModal, setShowModal }) {
                 >
                   <Button
                     text={"Track"}
-                    color={"bg-pink-200"}
+                    color={"bg-rose-600"}
                     colorHover={"bg-pink-800"}
                     spin_color={"bg-pink-800"}
                     spin={isLoading}
-                    text_color={"text-gray-800"}
+                    text_color={"text-white"}
                     normal
                   />
                 </div>

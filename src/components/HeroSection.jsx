@@ -7,7 +7,7 @@ export default function HeroSection({ showModal, setShowModal }) {
       <Carousel
         autoPlay={true}
         showThumbs={false}
-        swipeable={true}
+        swipeable={false}
         stopAutoPlayOnHover={true}
         interval={3000}
         animation={"fade"}

@@ -94,7 +94,7 @@ export default function Modal({ showModal, setShowModal }) {
                   />
                 </button>
               </div>
-              <div className="py-3 w-3/2 flex gap-8">
+              <div className="py-3 w-3/2 flex flex-col sm:flex-row gap-8">
                 <CustomInput
                   type="text"
                   required
@@ -114,8 +114,8 @@ export default function Modal({ showModal, setShowModal }) {
                 >
                   <Button
                     text={"Track"}
-                    color={"bg-rose-600"}
-                    colorHover={"bg-pink-800"}
+                    color={"bg-gray-800"}
+                    colorHover={"bg-gray-500"}
                     spin_color={"bg-pink-800"}
                     spin={isLoading}
                     text_color={"text-white"}
@@ -132,7 +132,7 @@ export default function Modal({ showModal, setShowModal }) {
                     <ul className="mt-6 space-y-6 p-6">
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">Quantity :</span>{" "}
@@ -142,7 +142,7 @@ export default function Modal({ showModal, setShowModal }) {
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">Weight :</span>{" "}
@@ -153,17 +153,17 @@ export default function Modal({ showModal, setShowModal }) {
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
-                        <span className="ml-3 text-gray-500">
+                        <span className="ml-3 capitalize text-gray-500">
                           Description :
                         </span>{" "}
                         <span className="ml-3 text-gray-700">Package</span>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">Status :</span>{" "}
@@ -181,51 +181,52 @@ export default function Modal({ showModal, setShowModal }) {
                     <ul className="mt-6 space-y-6 p-6">
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">
                           Receiver's name :
                         </span>{" "}
-                        <span className="ml-3 text-gray-700">
+                        <span className="ml-3 text-gray-700 capitalize">
                           {data?.client_name || ""}
                         </span>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 text-xs text-rose-500"
                           aria-hidden="true"
                         />
-                        <span className="ml-3 text-gray-500">
-                          Receiver's email :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {" "}
-                          {data.shipping_details?.receiver_email || ""}
-                        </span>
+                        <div>
+                          <span className="ml-3  text-gray-500 w-full">
+                            Receiver's email :
+                          </span>
+                          <div className="ml-3 mt-2 capitalize text-gray-700 flex-1 w-full text-ellipsis">
+                            {data.shipping_details?.receiver_email || ""}
+                          </div>
+                        </div>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">
                           Receiver's address :
                         </span>{" "}
-                        <span className="ml-3 text-gray-700">
+                        <span className="ml-3 text-gray-700 capitalize">
                           {" "}
                           {data?.destination || ""}
                         </span>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">
                           Delivery Date :
                         </span>{" "}
-                        <span className="ml-3 text-gray-700">
+                        <span className="ml-3 text-gray-700 capitalize">
                           {" "}
                           {data?.delivery_date || ""}
                         </span>
@@ -239,30 +240,29 @@ export default function Modal({ showModal, setShowModal }) {
                     <ul className="mt-6 space-y-6 p-6">
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">
                           Sender's name :
                         </span>{" "}
-                        <span className="ml-3 text-gray-700">
+                        <span className="ml-3 text-gray-700 capitalize">
                           {data.shipping_details?.sender_name || ""}
                         </span>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
-                        <span className="ml-3 text-gray-500">Location :</span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {" "}
+                        <span className="ml-3 text-gray-500">Location:</span>
+                        <span className="ml-3 text-gray-700 capitalize">
                           {data?.origin || ""}
                         </span>
                       </li>
                       <li className="flex">
                         <Circle
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="flex-shrink-0 w-4 h-4 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">

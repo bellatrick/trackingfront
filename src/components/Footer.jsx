@@ -1,9 +1,10 @@
+import { toast } from "react-toastify";
 const navigation = {
   solutions: [
     { name: "Marketing", href: "#" },
     { name: "Analytics", href: "#" },
-    { name: "Commerce", href: "#" },
-    { name: "Insights", href: "#" },
+    // { name: "Commerce", href: "#" },
+    // { name: "Insights", href: "#" },
   ],
   support: [
     { name: "Email", href: "mailto:busayosamuel2016@gmail.com" },
@@ -95,14 +96,16 @@ export default function Example() {
                 </h3>
                 <ul className="mt-4 space-y-4">
                   {navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
+                    <div
+                      key={item.name}
+                      onClick={() =>
+                        toast.info("Feature only available for admins")
+                      }
+                    >
+                      <p className="text-base text-gray-300 hover:text-white">
                         {item.name}
-                      </a>
-                    </li>
+                      </p>
+                    </div>
                   ))}
                 </ul>
               </div>
@@ -148,19 +151,16 @@ export default function Example() {
             <p className="mt-4 text-base text-center text-gray-300">
               Shoot us a mail to contact us
             </p>
-            <form
-              action="mailto:busayosamuel2016@gmail.com"
-              className="mt-4 sm:flex sm:max-w-full"
-            >
+            <div className="mt-4 sm:flex sm:max-w-full">
               <div className="mt-3 w-full rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                <button
-                  type="submit"
+                <a
+                  href="mailto:busayosamuel2016@gmail.com"
                   className="w-full bg-pink-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
                 >
                   Email us
-                </button>
+                </a>
               </div>
-            </form>
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">

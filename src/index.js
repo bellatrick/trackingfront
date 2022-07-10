@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import {StoreProvider} from './store'
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,7 +19,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <StoreProvider>
+        {" "}
+        <App />
+      </StoreProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

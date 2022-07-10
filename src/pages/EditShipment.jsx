@@ -55,6 +55,8 @@ const AddShipment = () => {
     delivery_date: "",
     weight: "",
     quantity: "",
+    amount: "",
+    current_location: "",
   });
   const {
     client_name,
@@ -67,6 +69,8 @@ const AddShipment = () => {
     sender_name,
     weight,
     quantity,
+    amount,
+    current_location,
   } = shippingDetails;
   useEffect(() => {
     if (data) {
@@ -81,6 +85,8 @@ const AddShipment = () => {
         weight: data.shipping_details?.weight || "",
         receiver_email: data.shipping_details?.receiver_email || "",
         sender_name: data.shipping_details?.sender_name || "",
+        amount: data.shipping_details.amount || "",
+        current_location: data.shipping_details.current_location || "",
       });
       setSelected(data.status);
     }
@@ -102,6 +108,8 @@ const AddShipment = () => {
           quantity,
           receiver_email,
           sender_name,
+          amount,
+          current_location,
         },
       },
     });
@@ -161,6 +169,19 @@ const AddShipment = () => {
                 name="receiver_email"
                 className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
                 placeholder="Receiver@gmail.com"
+              />
+            </div>
+            <div className="py-3 w-full">
+              <CustomInput
+                type="text"
+                required
+                value={amount}
+                onChange={handleChange}
+                label={"Amount paid"}
+                data_testid={"title"}
+                name="amount"
+                className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+                placeholder="350,000 in naira"
               />
             </div>
           </div>
@@ -281,11 +302,25 @@ const AddShipment = () => {
               ]}
             />
           </div>{" "}
+          <div className="py-3 w-full">
+            <CustomInput
+              venue={true}
+              type="text"
+              value={current_location}
+              required
+              onChange={handleChange}
+              label={"Package's current location"}
+              data_testid={"end_date"}
+              name="current_location"
+              className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+              placeholder="South Africa"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-2 items-center">
             <div className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10">
               <Button
                 text={"Edit"}
-                color={"bg-purple-500"}
+                color={"bg-gray-900"}
                 colorHover={"bg-purple-400"}
                 spin={isLoading}
               />

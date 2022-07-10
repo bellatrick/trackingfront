@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard";
 import AddShipment from "./pages/AddShipment";
 import EditShipment from "./pages/EditShipment";
 import Logs from "./pages/Logs";
+import ShowReceipt from "./pages/ShowReceipt";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/add_shipment" element={<AddShipment />} />
           <Route exact path="/logs" element={<Logs />} />
           <Route exact path="/edit_shipment/:id" element={<EditShipment />} />
+          <Route exact path="/receipt" element={<ShowReceipt />} />
         </Routes>
       </Router>
       <ToastContainer

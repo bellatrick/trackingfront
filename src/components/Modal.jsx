@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useState, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { Circle } from "@mui/icons-material";
@@ -8,8 +8,26 @@ import { getOneShippment, postLog } from "../Api";
 import CustomInput from "./CustomInput";
 import Button from "../components/Button";
 import { toast } from "react-toastify";
+import { Store } from "../store";
+import { useNavigate } from "react-router-dom";
+
+export const getTime = (myDate) => {
+  let result = myDate.match(/\d\d:\d\d/) || "";
+  return result[0];
+};
+const date = new Date();
+export const convertDate = (dateStr) => {
+  const date = new Date(dateStr).toLocaleDateString("en-EN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return date;
+};
 export default function Modal({ showModal, setShowModal }) {
+  const navigate = useNavigate();
   const completeButonRef = useRef(null);
+  const { dispatch } = useContext(Store);
   const [id, setID] = useState("");
   const [data, setData] = useState(false);
   const { mutate: logMutate } = useMutation(postLog, {
@@ -18,25 +36,36 @@ export default function Modal({ showModal, setShowModal }) {
       console.log(error);
     },
   });
-  const { mutate, isLoading } = useMutation(() => getOneShippment(id), {
-    onSuccess: (data) => {
-      setData(data);
-      logMutate({
-        tracking_id: id,
-        date: new Date(),
-        username: data.username,
-        name: data.client_name,
-      });
-    },
-    onError: (error) => {
-      console.log(error);
-      if (error.response.status === 500) {
-        toast.error("Tracking id not found");
-      } else toast.error("Something went wrong");
-    },
-  });
+  const { mutate, isLoading } = useMutation(
+    () => getOneShippment(id.split("_")[1]),
+    {
+      onSuccess: (data) => {
+        setData(data);
+        dispatch({ type: "GET_PRODUCT", payload: data });
+        data &&
+          logMutate({
+            tracking_id: id,
+            date: new Date(),
+            username: data.username,
+            name: data.client_name,
+          });
+      },
+      onError: (error) => {
+        console.log(error);
+        if (error.response.status === 500) {
+          toast.error("Tracking id not found");
+        } else toast.error("Something went wrong");
+      },
+    }
+  );
 
   const handleSubmit = () => {
+    if (!id.split("_")[1]) {
+      toast.info(
+        "oops! looks like you entered the wrong ID. Please check again"
+      );
+      return;
+    }
     if (id === "") {
       toast.info("Please enter a tracking number");
       return;
@@ -124,156 +153,186 @@ export default function Modal({ showModal, setShowModal }) {
                 </div>
               </div>
               {data ? (
-                <div className="max-w-2xl mx-auto text-xs  px-4 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8">
-                  <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <p className="bg-rose-500 text-white w-full py-2 px-4">
-                      Shipment Details
-                    </p>
-                    <ul className="mt-6 space-y-6 p-6">
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">Quantity :</span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {data.shipping_details?.quantity || 0}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">Weight :</span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {" "}
-                          {data.shipping_details?.weight || 0}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 capitalize text-gray-500">
-                          Description :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700">Package</span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">Status :</span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {" "}
-                          {data?.status || ""}
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <p className="bg-rose-500 text-white w-full py-2 px-4">
-                      Destination
-                    </p>
-                    <ul className="mt-6 space-y-6 p-6">
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">
-                          Receiver's name :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700 capitalize">
-                          {data?.client_name || ""}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 text-xs text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <div>
-                          <span className="ml-3  text-gray-500 w-full">
-                            Receiver's email :
+                <div>
+                  <div className="max-w-2xl mx-auto text-xs font-bold  px-4 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8">
+                    <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                        Shipment Details
+                      </p>
+                      <ul className="mt-6 space-y-6 p-6">
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">Quantity :</span>{" "}
+                          <span className="ml-3 text-gray-700">
+                            {data.shipping_details?.quantity || 0}
                           </span>
-                          <div className="ml-3 mt-2 capitalize text-gray-700 flex-1 w-full text-ellipsis">
-                            {data.shipping_details?.receiver_email || ""}
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">Weight :</span>{" "}
+                          <span className="ml-3 text-gray-700">
+                            {" "}
+                            {data.shipping_details?.weight || 0}
+                          </span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 capitalize text-gray-500">
+                            Description :
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700">Package</span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">Status :</span>{" "}
+                          <span className="ml-3 text-gray-700">
+                            {" "}
+                            {data?.status || ""}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                        Destination
+                      </p>
+                      <ul className="mt-6 space-y-6 p-6">
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">
+                            Receiver's name :
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700 capitalize">
+                            {data?.client_name || ""}
+                          </span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 text-xs text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <div>
+                            <span className="ml-3  text-gray-500 w-full">
+                              Receiver's email :
+                            </span>
+                            <div className="ml-3 mt-2 capitalize text-gray-700 flex-1 w-full text-ellipsis">
+                              {data.shipping_details?.receiver_email || ""}
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">
-                          Receiver's address :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700 capitalize">
-                          {" "}
-                          {data?.destination || ""}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">
-                          Delivery Date :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700 capitalize">
-                          {" "}
-                          {data?.delivery_date || ""}
-                        </span>
-                      </li>
-                    </ul>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">
+                            Destination :
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700 capitalize">
+                            {" "}
+                            {data?.destination || ""}
+                          </span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">
+                            Delivery Date :
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700 capitalize">
+                            {" "}
+                            {data?.delivery_date || ""}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                        Origin
+                      </p>
+                      <ul className="mt-6 space-y-6 p-6">
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">
+                            Sender's name :
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700 capitalize">
+                            {data.shipping_details?.sender_name || ""}
+                          </span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">Location:</span>
+                          <span className="ml-3 text-gray-700 capitalize">
+                            {data?.origin || ""}
+                          </span>
+                        </li>
+                        <li className="flex">
+                          <Circle
+                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-3 text-gray-500">
+                            Shipment Date:
+                          </span>{" "}
+                          <span className="ml-3 text-gray-700">
+                            {" "}
+                            {data?.date_shipped || ""}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <p className="bg-rose-500 text-white w-full py-2 px-4">
-                      Origin
+                  <hr className="my-4" />
+                  <div className="max-w-2xl font-bold mx-8 my-6 text-xs lg:text-sm">
+                    <p className="font-bold text-gray-500 mb-2 text-lg">
+                      Tracking Progress
                     </p>
-                    <ul className="mt-6 space-y-6 p-6">
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">
-                          Sender's name :
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700 capitalize">
-                          {data.shipping_details?.sender_name || ""}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">Location:</span>
-                        <span className="ml-3 text-gray-700 capitalize">
-                          {data?.origin || ""}
-                        </span>
-                      </li>
-                      <li className="flex">
-                        <Circle
-                          className="flex-shrink-0 w-4 h-4 text-rose-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-gray-500">
-                          Shipment Date:
-                        </span>{" "}
-                        <span className="ml-3 text-gray-700">
-                          {" "}
-                          {data?.date_shipped || ""}
-                        </span>
-                      </li>
-                    </ul>
+                    <div className="grid grid-cols-4 gap-4 ">
+                      <p className="text-pink-600 font-bold">Date</p>
+                      <p className="text-pink-600 font-bold">Time</p>
+                      <p className="text-pink-600 font-bold">Description</p>
+                      <p className="text-pink-600 font-bold">Location</p>
+                      <p className="text-gray-700">{convertDate(new Date())}</p>
+                      <p className="text-gray-700">
+                        {date.toLocaleTimeString()}
+                      </p>{" "}
+                      <p className="text-gray-700">{data?.status || ""}</p>
+                      <p className="text-gray-700">
+                        {data?.shipping_details?.current_location || ""}
+                      </p>
+                    </div>
+                  </div>
+                  <div className=" ml-6">
+                    <button
+                      onClick={() => navigate("/receipt")}
+                      className="text-center font-bold flex text-sm justify-center rounded-lg border-2 border-gray-700 mt-4 hover:border-pink-700 bg-gray-100 text-gray-900 px-4 py-2"
+                    >
+                      Print receipt
+                    </button>
                   </div>
                 </div>
               ) : (

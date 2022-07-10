@@ -94,7 +94,7 @@ const ShipmentTable = ({ List, loading }) => {
                           {interest?.status}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {interest?._id}
+                          REX_{interest?._id}
                         </td>
 
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

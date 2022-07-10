@@ -37,6 +37,8 @@ const AddShipment = () => {
     delivery_date: "",
     weight: "",
     quantity: "",
+    amount: "",
+    current_location: "",
   });
   const {
     client_name,
@@ -49,6 +51,8 @@ const AddShipment = () => {
     sender_name,
     weight,
     quantity,
+    amount,
+    current_location,
   } = shippingDetails;
   const handleChange = (e) => {
     setShippingDetails({ ...shippingDetails, [e.target.name]: e.target.value });
@@ -73,6 +77,9 @@ const AddShipment = () => {
         quantity,
         receiver_email,
         sender_name,
+        amount,
+        current_location,
+       
       },
       username,
     });
@@ -129,6 +136,19 @@ const AddShipment = () => {
                 name="receiver_email"
                 className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
                 placeholder="Receiver@gmail.com"
+              />
+            </div>
+            <div className="py-3 w-full">
+              <CustomInput
+                type="text"
+                required
+                value={amount}
+                onChange={handleChange}
+                label={"Amount paid"}
+                data_testid={"title"}
+                name="amount"
+                className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+                placeholder="350,000 in naira"
               />
             </div>
           </div>
@@ -244,7 +264,21 @@ const AddShipment = () => {
                 "Arrived at your Location",
               ]}
             />
-          </div>{" "}
+          </div>
+          <div className="py-3 w-full">
+            <CustomInput
+              venue={true}
+              type="text"
+              value={current_location}
+              required
+              onChange={handleChange}
+              label={"Package's current location"}
+              data_testid={"end_date"}
+              name="current_location"
+              className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+              placeholder="South Africa"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-2 items-center">
             <div className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10">
               <Button

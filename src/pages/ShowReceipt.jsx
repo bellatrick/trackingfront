@@ -53,7 +53,7 @@ const ShowReceipt = () => {
               {product?.destination}
             </p>
             <p className="border-b pb-2 border-gray-400">
-              <span className="font-bold">Tracking code</span> Tracking code:
+              <span className="font-bold">Tracking code</span> 
               REX_{product?._id}
             </p>
             <p className="border-b pb-2 border-gray-400">

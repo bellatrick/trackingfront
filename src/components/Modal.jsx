@@ -154,7 +154,7 @@ export default function Modal({ showModal, setShowModal }) {
               </div>
               {data ? (
                 <div>
-                  <div className="max-w-2xl mx-auto text-xs font-bold  px-4 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8">
+                  <div className="max-w-2xl mx-auto text-xs font-bold  px-2 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8">
                     <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
                       <p className="bg-rose-500 text-white w-full py-2 px-4">
                         Shipment Details
@@ -307,7 +307,7 @@ export default function Modal({ showModal, setShowModal }) {
                     </div>
                   </div>
                   <hr className="my-4" />
-                  <div className="max-w-2xl font-bold mx-8 my-6 text-xs lg:text-sm">
+                  <div className=" w-full sm:max-w-2xl font-bold sm:mx-8 my-6 text-xs lg:text-sm">
                     <p className="font-bold text-gray-500 mb-2 text-lg">
                       Tracking Progress
                     </p>

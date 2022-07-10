@@ -123,7 +123,7 @@ const Services = () => {
             <img src={img3} alt="road" />
           </div>
           <div className="offering-container-text">
-            <h3>LOGISTICS SOLUTIONS</h3>
+            <h3>HAULAGE</h3>
             <p>
               Not all cargo can travel by road. <br />
               When you need to make it fly, we make it fly for you.

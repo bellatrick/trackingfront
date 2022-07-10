@@ -6,13 +6,13 @@ import img5 from "../assets/p10.jpg";
 import Fade from "react-reveal/Fade";
 const feats = [
   {
-    title: "ROAD TRANSPORTATION",
+    title: "ROAD FREIGHT",
     details:
       " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
     imageUrl: img2,
   },
   {
-    title: "SEA FREIGHT",
+    title: "OCEAN FREIGHT",
     details:
       "Our company’s sea services provide much more than the average logistics company. Sea is faster, safer. We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
     imageUrl: img5,
@@ -29,6 +29,30 @@ const feats = [
       " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
     imageUrl: img4,
   },
+  {
+    title: "HAULAGE",
+    details:
+      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+    imageUrl: img4,
+  },
+  {
+    title: "GLOBAL MAIL",
+    details:
+      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+    imageUrl: img4,
+  },
+  {
+  title: "WAREHOUSING",
+  details:
+    " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+  imageUrl: img4,
+  },
+  {
+    title: "DOMESTIC COURIER",
+    details:
+      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+    imageUrl: img4,
+    },
 ];
 
 export default function Example() {

@@ -2,6 +2,7 @@ import p1 from '../src/assets/p6.jpg'
 import p2 from '../src/assets/p2.jpg'
 import p3 from '../src/assets/p3.jpg'
 import p4 from '../src/assets/p4.jpg'
+import p44 from '../src/assets/p44.jpg'
 export const sliderItems = [
   {
     id: 1,
@@ -14,20 +15,62 @@ export const sliderItems = [
     id: 2,
     img: p2,
     title: "EXCELLENCE IN SHIPPING AND LOGISTICS",
-    desc: "Go beyond logistics, make the world go round and revolutionize business.",
+    desc: "Go Beyond Logistics, Make The World Go Round And Revolutionize Business.",
     bg: "bg-blue-700",
   },
   {
     id: 3,
     img: p3,
     title: "END TO END LOGISTIC SOLUTION",
-    desc: "Your Unparalleled and trusted logistic company .",
+    desc: "Your Unparalleled And Trusted Logistic Company .",
     bg: "bg-gray-700",
   },
   {
-    id: 3,
+    id: 4,
+    img: p44,
+    title: "OUR SERVICES",
+    desc: "We Are Dedicated To Offer You First Class Services, Your Satisfaction Remains Our Utmost Priority.",
+    bg: "bg-blue-700",
+  },
+  {
+    id: 5,
+    img: p44,
+    title: "HAULAGE",
+    desc: "We Have Break The Distance Barrier And Dedicated To Deliver Your Package On Your Door Step .",
+    bg: "bg-purple-700",
+  },
+  {
+    id: 6,
     img: p4,
-    title: "END TO END LOGISTIC SOLUTION",
+    title: "AIR FREIGHT",
+    desc: "Your Unparalleled and trusted logistic company .",
+    bg: "bg-purple-700",
+  },
+  {
+    id: 6,
+    img: p4,
+    title: "OCEAN FREIGHT",
+    desc: "Your Unparalleled and trusted logistic company .",
+    bg: "bg-purple-700",
+  },
+  {
+    id: 6,
+    img: p4,
+    title: "ROAD FREIGHT",
+    desc: "Your Unparalleled and trusted logistic company .",
+    bg: "bg-purple-700",
+  },
+  {
+    id: 6,
+    img: p4,
+    title: "GLOBAL MAIL",
+    desc: "Your Unparalleled and trusted logistic company .",
+    bg: "bg-purple-700",
+  },
+  {
+    id: 6,
+    img: p4,
+    title: "WAREHOUSING",
     desc: "Your Unparalleled and trusted logistic company .",
     bg: "bg-purple-700",
   },

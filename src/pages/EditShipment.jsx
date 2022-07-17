@@ -294,7 +294,11 @@ const AddShipment = () => {
               setList={setSelected}
               label="Shipping Status"
               List={[
-                "In warehouse",
+                "On Hold",
+                "In Progress",
+                "Processing",
+                "Out For Delivery",
+                "In Warehouse",
                 "Packaging",
                 "Shipped",
                 "Arrived at your Location",

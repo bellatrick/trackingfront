@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { Circle } from "@mui/icons-material";
@@ -8,8 +8,6 @@ import { getOneShippment, postLog } from "../Api";
 import CustomInput from "./CustomInput";
 import Button from "../components/Button";
 import { toast } from "react-toastify";
-import { Store } from "../store";
-import { useNavigate } from "react-router-dom";
 
 export const getTime = (myDate) => {
   let result = myDate.match(/\d\d:\d\d/) || "";
@@ -25,9 +23,7 @@ export const convertDate = (dateStr) => {
   return date;
 };
 export default function Modal({ showModal, setShowModal }) {
-  const navigate = useNavigate();
   const completeButonRef = useRef(null);
-  const { dispatch } = useContext(Store);
   const [id, setID] = useState("");
   const [data, setData] = useState(false);
   const { mutate: logMutate } = useMutation(postLog, {
@@ -41,7 +37,7 @@ export default function Modal({ showModal, setShowModal }) {
     {
       onSuccess: (data) => {
         setData(data);
-        dispatch({ type: "GET_PRODUCT", payload: data });
+       
         data &&
           logMutate({
             tracking_id: id,
@@ -326,14 +322,14 @@ export default function Modal({ showModal, setShowModal }) {
                       </p>
                     </div>
                   </div>
-                  <div className=" ml-6">
+                  {/* <div className=" ml-6">
                     <button
                       onClick={() => navigate("/receipt")}
                       className="text-center font-bold flex text-sm justify-center rounded-lg border-2 border-gray-700 mt-4 hover:border-pink-700 bg-gray-100 text-gray-900 px-4 py-2"
                     >
                       Print receipt
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <p className="text-center font-bold text-lg text-pink-700">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import TextArea from "../components/TextArea";
 import DropDown from "../components/Dropdown";
 import CustomInput from "../components/CustomInput";
@@ -8,14 +8,16 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { deleteShippment, getOneShippment, updateShippment } from "../Api";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import { Store } from "../store";
 
 const AddShipment = () => {
   const username = localStorage.getItem("username");
+  const { dispatch } = useContext(Store);
   const queryClient = useQueryClient();
   const { id } = useParams();
   const navigate = useNavigate();
   const { data } = useQuery(["product", id], () => getOneShippment(id));
-  console.log(data);
+
   const { mutate, isLoading } = useMutation(updateShippment, {
     onSuccess: (data) => {
       toast.success("Shipment has been successfully edited");
@@ -74,6 +76,7 @@ const AddShipment = () => {
   } = shippingDetails;
   useEffect(() => {
     if (data) {
+      dispatch({ type: "GET_PRODUCT", payload: data });
       setShippingDetails({
         client_name: data.client_name,
         origin: data.origin,
@@ -90,7 +93,7 @@ const AddShipment = () => {
       });
       setSelected(data.status);
     }
-  }, [data]);
+  }, [data, dispatch]);
   const handleChange = (e) => {
     setShippingDetails({ ...shippingDetails, [e.target.name]: e.target.value });
   };
@@ -319,6 +322,17 @@ const AddShipment = () => {
                 color={"bg-gray-900"}
                 colorHover={"bg-purple-400"}
                 spin={isLoading}
+              />
+            </div>
+            <div
+              className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10"
+              onClick={() => navigate("/receipt")}
+            >
+              <Button
+                text={"Print receipt"}
+                color={"bg-gray-500"}
+                colorHover={"bg-gray-800"}
+                spin={false}
               />
             </div>
             <div

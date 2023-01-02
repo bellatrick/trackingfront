@@ -37,7 +37,7 @@ export default function Modal({ showModal, setShowModal }) {
     {
       onSuccess: (data) => {
         setData(data);
-       
+
         data &&
           logMutate({
             tracking_id: id,
@@ -113,7 +113,10 @@ export default function Modal({ showModal, setShowModal }) {
                   className="-mr-1 flex p-2 rounded-md hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
                 >
                   <XIcon
-                    onClick={() => setShowModal(false)}
+                    onClick={() => {
+                      setData(false)
+                      setShowModal(false);
+                    }}
                     className="h-6 w-6 text-purple-600"
                     aria-hidden="true"
                   />

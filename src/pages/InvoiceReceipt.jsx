@@ -149,7 +149,9 @@ const InvoiceReceipt = () => {
                 <span className="capitalize mr-[3px]">
                   {invoice.transaction_currency}
                 </span>
-                {sumTotalPrice(invoice) + +invoice.invoice_tax}
+                {invoice.invoice_tax
+                  ? sumTotalPrice(invoice) + +invoice.invoice_tax
+                  : sumTotalPrice(invoice)}
               </p>
             </div>
           </div>

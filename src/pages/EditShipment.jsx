@@ -587,7 +587,8 @@ const AddShipment = () => {
                 </div>
                 <div className="py-3 w-full">
                   <CustomInput
-                    type="number"
+                    type="text"
+                    pattern='[0-9*]'
                     value={invoice_tax}
                     onChange={handleChange}
                     label={"Tax amount"}
@@ -639,7 +640,7 @@ const AddShipment = () => {
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="py-3 w-full">
                   <CustomInput
-                    type="text"
+                    type="number"
                     value={customs_duty}
                     onChange={handleChange}
                     label={"Customs Duty"}

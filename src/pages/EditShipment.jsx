@@ -73,11 +73,11 @@ const AddShipment = () => {
     invoice_destination: "",
     phone: "",
     customs_duty: "",
-    customs_duty_unit: "",
+    customs_duty_unit: "1",
     customs_broker: "",
-    customs_broker_unit: "",
+    customs_broker_unit: "1",
     late_payment_fees: "",
-    late_payment_days: "",
+    late_payment_days: "1",
     bank_name: "",
     account_name: "",
     routing: "",
@@ -86,7 +86,8 @@ const AddShipment = () => {
     bank_address: "",
     home_address: "",
     transaction_currency: "",
-    invoice_number: "",
+    invoice_number: "1",
+    ref: "",
   });
   const {
     invoice_number,
@@ -120,6 +121,7 @@ const AddShipment = () => {
     late_payment_fees,
     swift_code,
     transaction_currency,
+    ref,
   } = shippingDetails;
   useEffect(() => {
     if (data) {
@@ -139,23 +141,24 @@ const AddShipment = () => {
         current_location: data.shipping_details.current_location || "",
         transaction_currency: data.shipping_details.transaction_currency || "",
         customs_broker: data.shipping_details.customs_broker || "",
-        customs_broker_unit: data.shipping_details.customs_broker_unit || "",
+        customs_broker_unit: data.shipping_details.customs_broker_unit || "1",
         customs_duty: data.shipping_details.customs_duty || "",
-        customs_duty_unit: data.shipping_details.customs_duty_unit || "",
+        customs_duty_unit: data.shipping_details.customs_duty_unit || "1",
         phone: data.shipping_details.phone || "",
         invoice_origin: data.shipping_details.invoice_origin || "",
         invoice_destination: data.shipping_details.invoice_destination || "",
-        invoice_tax: data.shipping_details.invoice_tax || "",
+        invoice_tax: data.shipping_details.invoice_tax || "1",
         home_address: data.shipping_details.home_address || "",
         bank_address: data.shipping_details.bank_address || "",
         bank_name: data.shipping_details.bank_name || "",
         account_name: data.shipping_details.account_name || "",
         account_number: data.shipping_details.account_number || "",
         routing: data.shipping_details.routing || "",
-        late_payment_days: data.shipping_details.late_payment_days || "",
+        late_payment_days: data.shipping_details.late_payment_days || "1",
         late_payment_fees: data.shipping_details.late_payment_fees || "",
         swift_code: data.shipping_details.swift_code || "",
-        invoice_number: data.shipping_details.invoice_number || "",
+        invoice_number: data.shipping_details.invoice_number || "1",
+        ref: data.shipping_details.ref || "",
       });
       setSelected(data.status);
     }
@@ -174,7 +177,7 @@ const AddShipment = () => {
     e.preventDefault();
     silentChange
       ? silentMutate({
-          id,
+          id: data._id,
           data: {
             ...shippingDetails,
             status: selected,
@@ -206,17 +209,18 @@ const AddShipment = () => {
               late_payment_days,
               late_payment_fees,
               swift_code,
+              tracking_code: data.shipping_details.tracking_code,
+              ref
             },
           },
         })
       : mutate({
-          id,
+          id: data._id,
           data: {
             ...shippingDetails,
             status: selected,
             username,
             shipping_details: {
-
               description: shipping_details,
               weight,
               quantity,
@@ -243,12 +247,14 @@ const AddShipment = () => {
               late_payment_days,
               late_payment_fees,
               swift_code,
+              tracking_code: data.shipping_details.tracking_code,
+              ref: data.shipping_details.ref,
             },
           },
         });
   };
   const handleDelete = () => {
-    deleteMutate({ id });
+    deleteMutate({ id: data._id });
   };
   return (
     <Layout>
@@ -439,6 +445,20 @@ const AddShipment = () => {
             <CustomInput
               venue={true}
               type="text"
+              value={ref}
+              required
+              onChange={handleChange}
+              label={"Payment reference number"}
+              data_testid={"end_date"}
+              name="ref"
+              className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+              placeholder="South Africa"
+            />
+          </div>
+          <div className="py-3 w-full">
+            <CustomInput
+              venue={true}
+              type="text"
               value={current_location}
               required
               onChange={handleChange}
@@ -449,8 +469,8 @@ const AddShipment = () => {
               placeholder="South Africa"
             />
           </div>
-          <div className="flex flex-col sm:flex-row gap-2 items-center">
-            <div className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2  items-center">
+            <div className="mx-auto uppercase  mt-4 sm:mt-10">
               <Button
                 text={"Edit"}
                 color={"bg-gray-900"}
@@ -460,7 +480,7 @@ const AddShipment = () => {
             </div>
             <div
               onClick={() => handleScrollInvoice()}
-              className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10"
+              className="mx-auto uppercase  mt-4 sm:mt-10"
             >
               <Button
                 text={"Create invoice"}
@@ -470,7 +490,7 @@ const AddShipment = () => {
               />
             </div>
             <div
-              className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10"
+              className="mx-auto uppercase  mt-4 sm:mt-10"
               onClick={() => navigate("/receipt")}
             >
               <Button
@@ -482,7 +502,19 @@ const AddShipment = () => {
               />
             </div>
             <div
-              className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10"
+              className="mx-auto uppercase  mt-4 sm:mt-10"
+              onClick={() => navigate("/transaction_receipt")}
+            >
+              <Button
+                text={"Transact receipt"}
+                color={"bg-gray-600"}
+                colorHover={"bg-gray-800"}
+                spin={false}
+                normal
+              />
+            </div>
+            <div
+              className="mx-auto uppercase  mt-4 sm:mt-10"
               onClick={handleDelete}
             >
               <Button
@@ -588,7 +620,7 @@ const AddShipment = () => {
                 <div className="py-3 w-full">
                   <CustomInput
                     type="text"
-                    pattern='[0-9*]'
+                    pattern="[0-9*]"
                     value={invoice_tax}
                     onChange={handleChange}
                     label={"Tax amount"}
@@ -770,7 +802,7 @@ const AddShipment = () => {
               <div className="flex flex-col sm:flex-row gap-2 items-center">
                 <div
                   onClick={handleSubmit}
-                  className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10"
+                  className="mx-auto uppercase w-2/3 sm:w-1/2  mt-4 sm:mt-10"
                 >
                   <Button
                     text={"Save"}

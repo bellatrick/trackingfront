@@ -73,10 +73,13 @@ const ShipmentTable = ({ List, loading }) => {
                           {interest.tracking_id}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {formatDate(interest?.date)}
+                          {formatDate(interest?.date)
+                            .split(" ")
+                            .slice(0, 4)
+                            .join(" ")}
                         </td>
                       </tr>
-                    ))}
+                    )).reverse()}
                 </tbody>
               </table>
             </div>

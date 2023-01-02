@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/login";
-import Register from "./pages/register";
 import LandingPage from "./pages/main";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +11,7 @@ import Logs from "./pages/Logs";
 import ShowReceipt from "./pages/ShowReceipt";
 import Invoice from "./pages/Invoice";
 import InvoiceReceipt from "./pages/InvoiceReceipt";
+import TransactionReceipt from "./pages/TransactionReceipt";
 function App() {
   return (
     <div className="App">
@@ -27,6 +27,7 @@ function App() {
           <Route exact path="/invoice/:id" element={<Invoice />} />
           <Route exact path="/receipt" element={<ShowReceipt />} />
           <Route exact path="/invoice_receipt" element={<InvoiceReceipt />} />
+          <Route exact path="/transaction_receipt" element={<TransactionReceipt />} />
         </Routes>
       </Router>
       <ToastContainer

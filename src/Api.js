@@ -25,6 +25,7 @@ export const updateShippment = async ({ data, id }) => {
   return response.data;
 };
 export const deleteShippment = async ({ id }) => {
+  console.log(username)
   const { data: response } = await api.delete(
     `/tracking/${id}/?username=${username}`
   );

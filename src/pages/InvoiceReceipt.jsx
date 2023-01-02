@@ -63,7 +63,10 @@ const InvoiceReceipt = () => {
                 <span className="capitalize mr-[3px]">
                   {invoice.transaction_currency}
                 </span>
-                {sumTotalPrice(invoice) + +invoice.invoice_tax}
+                {(sumTotalPrice(invoice) + +invoice.invoice_tax).toLocaleString(
+                  "en-US",
+                  { minimumFractionDigits: 2 }
+                )}
               </p>
             </div>
           </div>
@@ -130,7 +133,9 @@ const InvoiceReceipt = () => {
                 <span className="capitalize mr-[3px]">
                   {invoice.transaction_currency}
                 </span>
-                {sumTotalPrice(invoice)}
+                {sumTotalPrice(invoice).toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                })}
               </p>
               <p className="p-1">Tax</p>{" "}
               <p className="p-1 ">
@@ -150,8 +155,12 @@ const InvoiceReceipt = () => {
                   {invoice.transaction_currency}
                 </span>
                 {invoice.invoice_tax
-                  ? sumTotalPrice(invoice) + +invoice.invoice_tax
-                  : sumTotalPrice(invoice)}
+                  ? (
+                      sumTotalPrice(invoice) + +invoice.invoice_tax
+                    ).toLocaleString("en-US", { minimumFractionDigits: 2 })
+                  : sumTotalPrice(invoice).toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                    })}
               </p>
             </div>
           </div>

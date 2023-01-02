@@ -33,14 +33,26 @@ const ShowReceipt = () => {
             <div>
               {" "}
               <img src={barcode} alt="barcode" className="h-[110px] " />
-              <p className="capitalize text-center text-[18px]">
-                *REX_{product?._id}*
-              </p>
+              {product.shipping_details?.tracking_code ? (
+                <p className="uppercase text-center text-[18px]">
+                  *{product.shipping_details?.tracking_code}*
+                </p>
+              ) : (
+                <p className="capitalize text-center text-[18px]">
+                  *REX_{product?._id}*
+                </p>
+              )}
             </div>
           </div>
-          <p className="capitalize mt-[40px] text-gray-700 mb-6 text-center text-[25px] font-semibold">
-            REX_{product?._id}
-          </p>
+          {product.shipping_details?.tracking_code ? (
+            <p className="uppercase mt-[40px] text-gray-700 mb-6 text-center text-[25px] font-semibold">
+              {product.shipping_details?.tracking_code}
+            </p>
+          ) : (
+            <p className="capitalize mt-[40px] text-gray-700 mb-6 text-center text-[25px] font-semibold">
+              REX_{product?._id}
+            </p>
+          )}
           <hr />
           <div className="flex gap-8 justify-between">
             <div>
@@ -122,4 +134,4 @@ const ShowReceipt = () => {
   );
 };
 
-export default ShowReceipt; 
+export default ShowReceipt;

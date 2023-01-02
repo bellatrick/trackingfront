@@ -20,38 +20,39 @@ const feats = [
   {
     title: "AIR FREIGHT",
     details:
-      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+      
+      "At Rex logistics, we provide reliable air freight services for a wide range of goods. Our experienced team of freight experts handle the entire process of shipping, from the moment the goods enter our care to their delivery at their destination. We take great care to ensure that all shipments are handled in a timely and secure manner, with the utmost respect for customer privacy and security. Our air freight services are tailored to meet the needs of both individual customers and businesses, ensuring that goods are delivered to their destination on time and with the highest level of safety. We are committed to providing an exceptional level of service to our customers, and our air freight services are no exception.",
     imageUrl: img3,
   },
   {
     title: "LOGISTICS SOLUTIONS",
     details:
-      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+      "We are the top 5 services for your logistics solutions. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
     imageUrl: img4,
   },
   {
     title: "HAULAGE",
-    details:
-      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
-    imageUrl: img4,
+    details:  "Our logistics company provides a comprehensive range of haulage services for businesses looking to safely and efficiently transport goods. Our reliable fleet of vehicles are equipped with GPS tracking technology and are operated by experienced, professional drivers, ensuring that goods are always delivered on time and in perfect condition. We provide a full range of services including container haulage, temperature-controlled goods transport, bulk goods delivery, and hazardous materials transportation. We also offer a range of additional services such as warehousing, customs clearance, and order fulfilment. With our wide range of vehicles and capabilities, we are confident that we can meet your haulage requirements.",
+    imageUrl: img2,
   },
   {
     title: "GLOBAL MAIL",
     details:
-      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
-    imageUrl: img4,
+      
+      "Our logistics company offers a comprehensive global mail service. Whether you need to send a single letter or a large shipment of parcels, we can provide you with the best solutions for your needs. We offer a range of services that include express mail, international shipping, direct mail, and fulfillment services. Our experienced team of professionals can handle all of your mail needs and ensure your packages are delivered quickly and securely. We have established relationships with trusted carriers around the world and can provide you with competitive rates for a variety of destinations. With our global mail service, you can count on reliable delivery times, secure packaging, and exceptional customer service.",
+    imageUrl: img3,
   },
   {
   title: "WAREHOUSING",
   details:
-    " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
+    " We also provide domestic warehousing services. We offer a variety of storage solutions, from large warehouses to smaller, more specialized units. Our warehousing services are designed to meet your unique needs, whether you’re seeking short-term storage or long-term storage. We also provide temperature-controlled and humidity-controlled facilities, ensuring that your items are stored safely and securely.",
   imageUrl: img4,
   },
   {
     title: "DOMESTIC COURIER",
     details:
-      " Delivery of full load, part load and group page shipments. We will always find room on our trucks for your cargo.  We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment",
-    imageUrl: img4,
+      "We provide reliable and efficient domestic courier services. We offer a wide range of services, from express deliveries to overnight services, so you can find the delivery option that best meets your needs. Our team of experienced professionals ensures that your packages are handled with care and speed. We also use state-of-the-art tracking systems, so you can always keep an eye on your shipments. Our services are cost-effective and secure, making us the perfect partner for your domestic courier needs.",
+    imageUrl: img5,
     },
 ];
 

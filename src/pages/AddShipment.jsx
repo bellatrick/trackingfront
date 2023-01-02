@@ -11,6 +11,17 @@ import { useNavigate } from "react-router-dom";
 
 const AddShipment = () => {
   const queryClient = useQueryClient();
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHI0123456789JKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result.toLocaleUpperCase();
+  }
+
   const username = localStorage.getItem("username");
   const navigate = useNavigate();
   const { mutate, isLoading } = useMutation(postShippment, {
@@ -39,6 +50,7 @@ const AddShipment = () => {
     quantity: "",
     amount: "",
     current_location: "",
+    ref:""
   });
   const {
     client_name,
@@ -53,12 +65,18 @@ const AddShipment = () => {
     quantity,
     amount,
     current_location,
+    ref
   } = shippingDetails;
   const handleChange = (e) => {
     setShippingDetails({ ...shippingDetails, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
+
     e.preventDefault();
+    if (amount.split("").find((item) => item === ",")) {
+      toast.warn("Amount cannot not contain comma");
+      return;
+    }
     if (!username) {
       toast.warn("Your session has expired. Please log in again.");
       navigate("/login");
@@ -71,6 +89,7 @@ const AddShipment = () => {
     mutate({
       ...shippingDetails,
       status: selected,
+
       shipping_details: {
         description: shipping_details,
         weight,
@@ -79,7 +98,8 @@ const AddShipment = () => {
         sender_name,
         amount,
         current_location,
-       
+        tracking_code: makeid(10),
+        ref
       },
       username,
     });
@@ -139,6 +159,7 @@ const AddShipment = () => {
               />
             </div>
             <div className="py-3 w-full">
+            
               <CustomInput
                 type="text"
                 required
@@ -148,8 +169,9 @@ const AddShipment = () => {
                 data_testid={"title"}
                 name="amount"
                 className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
-                placeholder="350,000 in naira"
+                placeholder="$5000"
               />
+                <p className="text-gray-500 text-[12px] mt-2">Please ensure that you include the currency sign in front of the amount</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-2">
@@ -281,6 +303,20 @@ const AddShipment = () => {
               name="current_location"
               className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
               placeholder="South Africa"
+            />
+          </div>
+          <div className="py-3 w-full">
+            <CustomInput
+              venue={true}
+              type="text"
+              value={ref}
+              required
+              onChange={handleChange}
+              label={"Payment's reference number"}
+              data_testid={"end_date"}
+              name="ref"
+              className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+              placeholder="45678987654"
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-2 items-center">

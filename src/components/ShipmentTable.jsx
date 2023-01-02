@@ -94,14 +94,20 @@ const ShipmentTable = ({ List, loading }) => {
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                           {interest?.status}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          REX_{interest?._id}
-                        </td>
+                        {interest.shipping_details?.tracking_code ? (
+                          <td className="px-6 py-4 uppercase whitespace-nowrap text-sm text-gray-600">
+                            {interest.shipping_details.tracking_code}
+                          </td>
+                        ) : (
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                            REX_{interest?._id}
+                          </td>
+                        )}
 
                         <td className="px-6 flex gap-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <p
                             onClick={() =>
-                              navigate(`/edit_shipment/${interest._id}`)
+                              navigate(`/edit_shipment/${interest.shipping_details.tracking_code}`)
                             }
                             className="text-indigo-600 hover:text-indigo-900 cursor-pointer"
                           >

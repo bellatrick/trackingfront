@@ -32,36 +32,32 @@ export default function Modal({ showModal, setShowModal }) {
       console.log(error);
     },
   });
-  const { mutate, isLoading } = useMutation(
-    () => getOneShippment(id.split("_")[1]),
-    {
-      onSuccess: (data) => {
-        setData(data);
+  const { mutate, isLoading } = useMutation(() => getOneShippment(id), {
+    onSuccess: (data) => {
+      if (data === "") {
+        toast.warn(
+          "Shipment not found. Please make sure your tracking number is in all caps"
+        );
+      }
+      setData(data);
 
-        data &&
-          logMutate({
-            tracking_id: id,
-            date: new Date(),
-            username: data.username,
-            name: data.client_name,
-          });
-      },
-      onError: (error) => {
-        console.log(error);
-        if (error.response.status === 500) {
-          toast.error("Tracking id not found");
-        } else toast.error("Something went wrong");
-      },
-    }
-  );
+      data &&
+        logMutate({
+          tracking_id: id,
+          date: new Date(),
+          username: data.username,
+          name: data.client_name,
+        });
+    },
+    onError: (error) => {
+      console.log(error);
+      if (error.response.status === 500) {
+        toast.error("Tracking id not found");
+      } else toast.error("Something went wrong");
+    },
+  });
 
   const handleSubmit = () => {
-    if (!id.split("_")[1]) {
-      toast.info(
-        "oops! looks like you entered the wrong ID. Please check again"
-      );
-      return;
-    }
     if (id === "") {
       toast.info("Please enter a tracking number");
       return;
@@ -114,7 +110,7 @@ export default function Modal({ showModal, setShowModal }) {
                 >
                   <XIcon
                     onClick={() => {
-                      setData(false)
+                      setData(false);
                       setShowModal(false);
                     }}
                     className="h-6 w-6 text-purple-600"

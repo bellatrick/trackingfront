@@ -38,7 +38,7 @@ export default function HeroSection({ showModal, setShowModal }) {
                     <button
                       type="button"
                       onClick={() => setShowModal(!showModal)}
-                      className="w-full bg-gray-700 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-pink-500"
+                      className="w-full bg-purple-700 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500"
                     >
                       Track
                     </button>
@@ -72,7 +72,7 @@ export default function HeroSection({ showModal, setShowModal }) {
                           y={0}
                           width={4}
                           height={4}
-                          className="text-pink-700"
+                          className="text-purple-700"
                           fill="currentColor"
                         />
                       </pattern>

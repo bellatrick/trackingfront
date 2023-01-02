@@ -23,12 +23,12 @@ const DeskTopBar = () => {
   return (
     <div className="hidden lg:flex lg:flex-shrink-0 font-body">
       <div className="flex flex-col w-64">
-        <div className="flex flex-col flex-grow bg-rose-900 pt-5 pb-4 overflow-y-auto relative">
+        <div className="flex flex-col flex-grow bg-purple-900 pt-5 pb-4 overflow-y-auto relative">
           <div
-            className="flex items-center flex-shrink-0 -ml-10"
+            className="flex items-center flex-shrink-0 ml-6"
             onClick={() => navigate("/")}
           >
-            <img className="h-20 w-20 mb-5 mx-auto" src="" alt="logo" />
+           <p className='font-cursive mb-[40px] text-gray-100 text-[16px] text-center'>Rex Logistics</p>
           </div>
           <nav
             className="mt-5 flex-1 flex flex-col overflow-y-auto"
@@ -41,8 +41,8 @@ const DeskTopBar = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     [
-                      " hover:text-white hover:bg-rose-600 group flex items-center pl-8 px-2 py-4 text-lg  leading-6 font-medium rounded-md",
-                      isActive ? " text-rose-200 bg-rose-600" : "bg-white",
+                      " hover:text-white hover:bg-purple-600 group flex items-center pl-8 px-2 py-4 text-lg  leading-6 font-medium rounded-md",
+                      isActive ? " text-purple-200 bg-purple-600" : "bg-white",
                     ]
                       .filter(Boolean)
                       .join()
@@ -63,7 +63,7 @@ const DeskTopBar = () => {
                   <div
                     key={i}
                     onClick={handleLogout}
-                    className="group flex items-center py-2 text-lg leading-6 pl-6 font-light tracking-wider rounded-md text-white  hover:bg-rose-700"
+                    className="group flex items-center cursor-pointer py-2 text-lg leading-6 pl-6 font-light tracking-wider rounded-md text-white  hover:bg-purple-700"
                   >
                     <item.icon
                       className="mr-4 h-6 w-6 text-white"

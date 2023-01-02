@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 const ShipmentTable = ({ List, loading }) => {
   console.log(List);
   const navigate = useNavigate();
@@ -97,7 +98,7 @@ const ShipmentTable = ({ List, loading }) => {
                           REX_{interest?._id}
                         </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 flex gap-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <p
                             onClick={() =>
                               navigate(`/edit_shipment/${interest._id}`)

@@ -13,7 +13,7 @@ export default function Dashboard() {
     <Layout>
       <div className="flex justify-end mr-4 mt-4">
         <button
-          className="bg-rose-600 px-4 py-2 mb-6 text-white rounded-md"
+          className="bg-purple-800 px-4 py-2 mb-6 text-white rounded-md"
           onClick={() => navigate("/add_shipment")}
         >
           Add new Shipment

@@ -15,7 +15,7 @@ export default function NavBar({ showModal, setShowModal }) {
             <div className="relative flex items-center justify-between h-16">
               <div className="flex justify-between w-full items-center px-2 lg:px-0">
                 <div className="">
-                  <p className="text-white text-xl font-logo">Rex Logistics</p>
+                  <p className="text-white text-[26px] font-cursive">Rex Logistics</p>
                 </div>
                 <div className="hidden lg:block lg:ml-6">
                   <div className="flex space-x-4">

@@ -287,8 +287,8 @@ const AddShipment = () => {
             <div className="mx-auto uppercase w-2/3 sm:w-1/2 mt-4 sm:mt-10">
               <Button
                 text={"Add"}
-                color={"bg-rose-500"}
-                colorHover={"bg-rose-400"}
+                color={"bg-purple-500"}
+                colorHover={"bg-purple-400"}
                 spin={isLoading}
               />
             </div>

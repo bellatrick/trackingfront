@@ -9,8 +9,8 @@ const About = () => {
         <div className="about-header">
           <div className="about-header-one">
             {" "}
-            <p>Rex Logistics Solutions </p>
-            <h3>About Us</h3>
+            <p className='text-purple-800'>Rex Logistics Solutions </p>
+            <h3 className='text-purple-800'>About Us</h3>
           </div>
         </div>
       </>

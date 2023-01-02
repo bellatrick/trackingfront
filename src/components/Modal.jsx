@@ -110,11 +110,11 @@ export default function Modal({ showModal, setShowModal }) {
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="-mr-1 flex p-2 rounded-md hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+                  className="-mr-1 flex p-2 rounded-md hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
                 >
                   <XIcon
                     onClick={() => setShowModal(false)}
-                    className="h-6 w-6 text-pink-600"
+                    className="h-6 w-6 text-purple-600"
                     aria-hidden="true"
                   />
                 </button>
@@ -141,7 +141,7 @@ export default function Modal({ showModal, setShowModal }) {
                     text={"Track"}
                     color={"bg-gray-800"}
                     colorHover={"bg-gray-500"}
-                    spin_color={"bg-pink-800"}
+                    spin_color={"bg-purple-800"}
                     spin={isLoading}
                     text_color={"text-white"}
                     normal
@@ -152,13 +152,13 @@ export default function Modal({ showModal, setShowModal }) {
                 <div>
                   <div className="max-w-2xl mx-auto text-xs font-bold  px-2 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8">
                     <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                      <p className="bg-purple-500 text-white w-full py-2 px-4">
                         Shipment Details
                       </p>
                       <ul className="mt-6 space-y-6 p-6">
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">Quantity :</span>{" "}
@@ -168,7 +168,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">Weight :</span>{" "}
@@ -179,7 +179,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 capitalize text-gray-500">
@@ -189,7 +189,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">Status :</span>{" "}
@@ -201,13 +201,13 @@ export default function Modal({ showModal, setShowModal }) {
                       </ul>
                     </div>
                     <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                      <p className="bg-purple-500 text-white w-full py-2 px-4">
                         Destination
                       </p>
                       <ul className="mt-6 space-y-6 p-6">
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">
@@ -219,7 +219,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 text-xs text-rose-500"
+                            className="flex-shrink-0 text-xs text-purple-500"
                             aria-hidden="true"
                           />
                           <div>
@@ -233,7 +233,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">
@@ -246,7 +246,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">
@@ -260,13 +260,13 @@ export default function Modal({ showModal, setShowModal }) {
                       </ul>
                     </div>
                     <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                      <p className="bg-rose-500 text-white w-full py-2 px-4">
+                      <p className="bg-purple-500 text-white w-full py-2 px-4">
                         Origin
                       </p>
                       <ul className="mt-6 space-y-6 p-6">
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">
@@ -278,7 +278,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">Location:</span>
@@ -288,7 +288,7 @@ export default function Modal({ showModal, setShowModal }) {
                         </li>
                         <li className="flex">
                           <Circle
-                            className="flex-shrink-0 w-4 h-4 text-rose-500"
+                            className="flex-shrink-0 w-4 h-4 text-purple-500"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-gray-500">
@@ -308,10 +308,10 @@ export default function Modal({ showModal, setShowModal }) {
                       Tracking Progress
                     </p>
                     <div className="grid grid-cols-4 gap-4 ">
-                      <p className="text-pink-600 font-bold">Date</p>
-                      <p className="text-pink-600 font-bold">Time</p>
-                      <p className="text-pink-600 font-bold">Description</p>
-                      <p className="text-pink-600 font-bold">Location</p>
+                      <p className="text-purple-600 font-bold">Date</p>
+                      <p className="text-purple-600 font-bold">Time</p>
+                      <p className="text-purple-600 font-bold">Description</p>
+                      <p className="text-purple-600 font-bold">Location</p>
                       <p className="text-gray-700">{convertDate(new Date())}</p>
                       <p className="text-gray-700">
                         {date.toLocaleTimeString()}
@@ -325,14 +325,14 @@ export default function Modal({ showModal, setShowModal }) {
                   {/* <div className=" ml-6">
                     <button
                       onClick={() => navigate("/receipt")}
-                      className="text-center font-bold flex text-sm justify-center rounded-lg border-2 border-gray-700 mt-4 hover:border-pink-700 bg-gray-100 text-gray-900 px-4 py-2"
+                      className="text-center font-bold flex text-sm justify-center rounded-lg border-2 border-gray-700 mt-4 hover:border-purple-700 bg-gray-100 text-gray-900 px-4 py-2"
                     >
                       Print receipt
                     </button>
                   </div> */}
                 </div>
               ) : (
-                <p className="text-center font-bold text-lg text-pink-700">
+                <p className="text-center font-bold text-lg text-purple-700">
                   {id.trim().length <= 0 && "Please enter a tracking id"}
                 </p>
               )}

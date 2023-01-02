@@ -37,13 +37,13 @@ export default function Example() {
     <>
       <div className="h-full  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto  sm:w-full sm:max-w-md">
-          <img className="mx-auto h-32 w-32" src="" alt="Workflow" />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-rose-700">
+          <p className='font-cursive mb-16 text-gray-600 text-[25px] text-center'>Rex Logistics</p>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-purple-700">
             Sign in to your account
           </h2>
         </div>
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-8 border-2 border-gray-300 rounded-md sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form
               onSubmit={handleSubmit}
@@ -98,7 +98,7 @@ export default function Example() {
                       })
                     }
                     value={userDetails.password}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function Example() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                 >
                   {isLoading ? (
                     <LoadingSpinner height={"6"} width={"5"} />

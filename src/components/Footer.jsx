@@ -155,7 +155,7 @@ export default function Example() {
               <div className="mt-3 w-full rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <a
                   href="mailto:busayosamuel2016@gmail.com"
-                  className="w-full bg-pink-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                  className="w-full bg-purple-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
                 >
                   Email us
                 </a>
@@ -169,7 +169,7 @@ export default function Example() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-pink-700 hover:text-gray-300"
+                className="text-purple-700 hover:text-gray-300"
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />

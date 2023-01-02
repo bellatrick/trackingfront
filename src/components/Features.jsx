@@ -62,7 +62,7 @@ export default function Example() {
         <div className="space-y-12">
           <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
             <Fade left>
-              <h2 className="text-3xl font-extrabold text-pink-600 tracking-tight sm:text-4xl">
+              <h2 className="text-3xl font-extrabold text-purple-600 tracking-tight sm:text-4xl">
                 Our Services
               </h2>
             </Fade>
@@ -93,7 +93,7 @@ export default function Example() {
                     </div>
 
                     <div className="space-y-2">
-                      <div className=" text-pink-600 leading-6  space-y-1">
+                      <div className=" text-purple-600 leading-6  space-y-1">
                         <h3 className="font-bold text-xl mb-4">
                           {person.title}
                         </h3>

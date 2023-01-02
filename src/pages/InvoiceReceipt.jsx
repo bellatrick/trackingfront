@@ -47,11 +47,11 @@ const InvoiceReceipt = () => {
           <div className="flex bg-gray-100  p-6 rounded-md justify-between">
             <div>
               <p className="font-bold text-[18px] mb-2">Sent From</p>
-              <p>{invoice.origin}</p>
+              <p>{invoice.invoice_origin}</p>
             </div>{" "}
             <div>
               <p className="font-bold text-[18px] mb-2">Sent To</p>
-              <p>{invoice.destination}</p>
+              <p>{invoice.invoice_destination}</p>
               <p>{invoice.phone}</p>
             </div>{" "}
             <div>

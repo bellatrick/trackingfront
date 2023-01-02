@@ -524,7 +524,7 @@ const AddShipment = () => {
                     type="text"
                     value={invoice_origin}
                     onChange={handleChange}
-                    label={"Shipment Origin"}
+                    label={"Invoice Origin"}
                     data_testid={"title"}
                     name="invoice_origin"
                     className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
@@ -538,7 +538,7 @@ const AddShipment = () => {
                     value={invoice_destination}
                     required={false}
                     onChange={handleChange}
-                    label={"Shipment Destination"}
+                    label={"Invoice Destination"}
                     data_testid={"title"}
                     name="invoice_destination"
                     className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"

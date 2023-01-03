@@ -110,7 +110,7 @@ const TransactionReceipt = () => {
       <div ref={componentRef}>
         <div className="w-[700px] h-[800px]  mx-auto pt-10">
           <div className="flex justify-between items-center mb-10">
-            <p className="font-cursive text-[18px]">Rex Logistics</p>
+          <img src="./purplelogo.png" alt="" className='h-[80px] object-contain'/>
             <div className="text-center">
               {" "}
               <h3 className="font-body text-center text-gray-600 font-bold text-[20px]">

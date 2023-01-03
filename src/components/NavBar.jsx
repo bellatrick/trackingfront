@@ -12,10 +12,11 @@ export default function NavBar({ showModal, setShowModal }) {
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
+            <div className="relative flex items-center justify-between h-20">
               <div className="flex justify-between w-full items-center px-2 lg:px-0">
                 <div className="">
-                  <p className="text-white text-[26px] font-cursive">Rex Logistics</p>
+                  <img src="./whitelogo.png" alt="" className='h-[90px] object-contain'/>
+                  {/* <p className="text-white text-[26px] font-cursive">Rex Logistics</p> */}
                 </div>
                 <div className="hidden lg:block lg:ml-6">
                   <div className="flex space-x-4">
@@ -118,11 +119,11 @@ export default function NavBar({ showModal, setShowModal }) {
                   </p>
                   <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
                     <a
-                      href="mailto:busayosamuel2016@gmail.com"
+                      href="mailto:contact@rexslogistics.com"
                       className="flex items-center cursor-pointer justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-600 bg-white hover:bg-gray-50"
                     >
                       <MailOutlineOutlinedIcon />
-                      contact@fleetwoodscourier.com
+                      contact@rexslogistics.com
                     </a>
                   </div>
                   <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">

@@ -29,11 +29,11 @@ export default function Banner() {
           </p>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             <a
-              href="mailto:busayosamuel2016@gmail.com"
+              href="mailto:support@rexlogistics.com"
               className="flex items-center justify-center cursor-pointer px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-purple-600 bg-white hover:bg-purple-50"
             >
               <MailOutlineOutlinedIcon />
-              contact@fleetwoodscouriers.com
+              contact@rexlogistics.com
             </a>
           </div>
           <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">

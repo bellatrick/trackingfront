@@ -28,7 +28,8 @@ const DeskTopBar = () => {
             className="flex items-center flex-shrink-0 ml-6"
             onClick={() => navigate("/")}
           >
-           <p className='font-cursive mb-[40px] text-gray-100 text-[16px] text-center'>Rex Logistics</p>
+           {/* <p className='font-cursive mb-[40px] text-gray-100 text-[16px] text-center'>Rex Logistics</p> */}
+           <img src="./whitelogo.png" alt="" className="h-[80px]"/>
           </div>
           <nav
             className="mt-5 flex-1 flex flex-col overflow-y-auto"

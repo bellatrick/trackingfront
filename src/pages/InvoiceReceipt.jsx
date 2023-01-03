@@ -41,9 +41,7 @@ const InvoiceReceipt = () => {
               <p>{formatDate(new Date())}</p>
             </div>
           </div>
-          <p className="font-cursive font-semibold text-[30px]">
-            Rex logistics
-          </p>
+          <img src="./purplelogo.png" alt="" className='h-[80px] object-contain'/>
           <div className="flex bg-gray-100  p-6 rounded-md justify-between">
             <div>
               <p className="font-bold text-[18px] mb-2">Sent From</p>

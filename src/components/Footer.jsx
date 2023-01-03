@@ -7,7 +7,7 @@ const navigation = {
     // { name: "Insights", href: "#" },
   ],
   support: [
-    { name: "Email", href: "mailto:busayosamuel2016@gmail.com" },
+    { name: "Email", href: "mailto:contact@rexslogistics.com" },
     { name: "Whatsapp", href: "https://wa.me/+2348108932677" },
   ],
   company: [
@@ -154,7 +154,7 @@ export default function Example() {
             <div className="mt-4 sm:flex sm:max-w-full">
               <div className="mt-3 w-full rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <a
-                  href="mailto:busayosamuel2016@gmail.com"
+                  href="mailto:contact@rexslogistics.com"
                   className="w-full bg-purple-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
                 >
                   Email us

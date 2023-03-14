@@ -50,7 +50,8 @@ const AddShipment = () => {
     quantity: "",
     amount: "",
     current_location: "",
-    ref:""
+    ref: "",
+    company_address: "",
   });
   const {
     client_name,
@@ -65,13 +66,13 @@ const AddShipment = () => {
     quantity,
     amount,
     current_location,
-    ref
+    ref,
+    company_address,
   } = shippingDetails;
   const handleChange = (e) => {
     setShippingDetails({ ...shippingDetails, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
-
     e.preventDefault();
     if (amount.split("").find((item) => item === ",")) {
       toast.warn("Amount cannot not contain comma");
@@ -99,7 +100,8 @@ const AddShipment = () => {
         amount,
         current_location,
         tracking_code: makeid(10),
-        ref
+        ref,
+        company_address,
       },
       username,
     });
@@ -159,7 +161,6 @@ const AddShipment = () => {
               />
             </div>
             <div className="py-3 w-full">
-            
               <CustomInput
                 type="text"
                 required
@@ -171,7 +172,10 @@ const AddShipment = () => {
                 className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
                 placeholder="$5000"
               />
-                <p className="text-gray-500 text-[12px] mt-2">Please ensure that you include the currency sign in front of the amount</p>
+              <p className="text-gray-500 text-[12px] mt-2">
+                Please ensure that you include the currency sign in front of the
+                amount
+              </p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-2">
@@ -274,6 +278,20 @@ const AddShipment = () => {
             </div>
           </div>
           <div className="mt-3">
+            <div className="py-3 w-full">
+              <CustomInput
+                venue={true}
+                type="text"
+                value={company_address}
+                required
+                onChange={handleChange}
+                label={"Rex's Company address"}
+                data_testid={"end_date"}
+                name="company_address"
+                className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+                placeholder="Company address"
+              />
+            </div>
             <DropDown
               placeholder="Status"
               item={selected}

@@ -1,9 +1,9 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
-import { SpeakerphoneIcon } from "@heroicons/react/outline";
+// import { SpeakerphoneIcon } from "@heroicons/react/outline";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+//import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 
 export default function NavBar({ showModal, setShowModal }) {
   const navigate = useNavigate();
@@ -99,12 +99,12 @@ export default function NavBar({ showModal, setShowModal }) {
               <div className="max-w-7xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between flex-wrap">
                   <div className="w-0 flex-1 flex items-center">
-                    <span className="flex p-2 rounded-lg bg-gray-800">
+                    {/* <span className="flex p-2 rounded-lg bg-gray-800">
                       <SpeakerphoneIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
-                    </span>
+                    </span> */}
                     <p className="ml-3 font-medium text-white truncate">
                       <span className="md:hidden">Track Online</span>
                       <span className="hidden md:inline">
@@ -112,11 +112,11 @@ export default function NavBar({ showModal, setShowModal }) {
                       </span>
                     </p>
                   </div>
-                  <p className="text-white mr-8">
+                  {/* <p className="text-white mr-8">
                     {" "}
                     <PhoneIphoneIcon />
                     Call +1 (678) 561‑2614
-                  </p>
+                  </p> */}
                   <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
                     <a
                       href="mailto:contact@rexslogistics.com"

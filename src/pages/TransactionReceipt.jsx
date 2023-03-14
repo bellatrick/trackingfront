@@ -110,13 +110,17 @@ const TransactionReceipt = () => {
       <div ref={componentRef}>
         <div className="w-[700px] h-[800px]  mx-auto pt-10">
           <div className="flex justify-between items-center mb-10">
-          <img src="./purplelogo.png" alt="" className='h-[80px] object-contain'/>
+            <img
+              src="./purplelogo.png"
+              alt=""
+              className="h-[80px] object-contain"
+            />
             <div className="text-center">
               {" "}
               <h3 className="font-body text-center text-gray-600 font-bold text-[20px]">
-                Rex Logistics Courier Service
+                Rex Logistics Courier Services
               </h3>
-              <p>3 Adeleke Lane, Ikeja Lagos</p>
+              <p> {product.shipping_details.company_address}</p>
               <p className="uppercase">
                 Regn No: {product.shipping_details.tracking_code}
               </p>
@@ -130,8 +134,8 @@ const TransactionReceipt = () => {
           <hr />
           <div className="flex justify-between py-2 font-body text-[14px]">
             {" "}
-            <p>Phone: +234 8108932677</p>
-            <p>Email: RexLogistics@gmail.com</p>
+            <p></p>
+            <p>Email: support@rexslogistics.com</p>
           </div>
           <hr />
           <div className="flex text-gray-600 justify-between mt-4">

@@ -88,6 +88,7 @@ const AddShipment = () => {
     transaction_currency: "",
     invoice_number: "1",
     ref: "",
+    company_address: "",
   });
   const {
     invoice_number,
@@ -122,6 +123,7 @@ const AddShipment = () => {
     swift_code,
     transaction_currency,
     ref,
+    company_address,
   } = shippingDetails;
   useEffect(() => {
     if (data) {
@@ -159,6 +161,7 @@ const AddShipment = () => {
         swift_code: data.shipping_details.swift_code || "",
         invoice_number: data.shipping_details.invoice_number || "1",
         ref: data.shipping_details.ref || "",
+        company_address: data.shipping_details.company_address || "",
       });
       setSelected(data.status);
     }
@@ -210,7 +213,8 @@ const AddShipment = () => {
               late_payment_fees,
               swift_code,
               tracking_code: data.shipping_details.tracking_code,
-              ref
+              ref,
+              company_address,
             },
           },
         })
@@ -249,6 +253,7 @@ const AddShipment = () => {
               swift_code,
               tracking_code: data.shipping_details.tracking_code,
               ref: data.shipping_details.ref,
+              company_address,
             },
           },
         });
@@ -380,6 +385,18 @@ const AddShipment = () => {
             </div>
           </div>
           <div className="">
+            <CustomInput
+              venue={true}
+              type="text"
+              value={company_address}
+              required
+              onChange={handleChange}
+              label={"Rex's Company address"}
+              data_testid={"end_date"}
+              name="company_address"
+              className="block relative text-xs uppercase font-medium mb-4 text-gray-400 tracking-widest"
+              placeholder="Company address"
+            />
             <TextArea
               label="Description"
               value={shipping_details}

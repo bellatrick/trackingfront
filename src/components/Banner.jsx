@@ -1,6 +1,6 @@
 import { SpeakerphoneIcon, XIcon } from "@heroicons/react/outline";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+//import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import { useState } from "react";
 export default function Banner() {
   const [hide, setHide] = useState(false);
@@ -22,11 +22,11 @@ export default function Banner() {
               </span>
             </p>
           </div>
-          <p className="text-white mr-8">
+          {/* <p className="text-white mr-8">
             {" "}
             <PhoneIphoneIcon />
             Call +1 (678) 561‑2614
-          </p>
+          </p> */}
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             <a
               href="mailto:support@rexlogistics.com"

@@ -1,21 +1,21 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/login";
-import LandingPage from "./pages/main";
-import { ToastContainer } from "react-toastify";
+// import Login from "./pages/login";
+// import LandingPage from "./pages/main";
+// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Dashboard from "./pages/dashboard";
-import AddShipment from "./pages/AddShipment";
-import EditShipment from "./pages/EditShipment";
-import Logs from "./pages/Logs";
-import ShowReceipt from "./pages/ShowReceipt";
-import Invoice from "./pages/Invoice";
-import InvoiceReceipt from "./pages/InvoiceReceipt";
-import TransactionReceipt from "./pages/TransactionReceipt";
+// import Dashboard from "./pages/dashboard";
+// import AddShipment from "./pages/AddShipment";
+// import EditShipment from "./pages/EditShipment";
+// import Logs from "./pages/Logs";
+// import ShowReceipt from "./pages/ShowReceipt";
+// import Invoice from "./pages/Invoice";
+// import InvoiceReceipt from "./pages/InvoiceReceipt";
+// import TransactionReceipt from "./pages/TransactionReceipt";
 function App() {
   return (
     <div>
-      
+
     </div>
     // <div className="App">
     //   <Router>

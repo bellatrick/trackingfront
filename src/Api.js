@@ -1,7 +1,7 @@
 import axios from "axios";
 const username = localStorage.getItem("username");
 const api = axios.create({
-  baseURL: "https://wetrack.onrender.com/api",
+  baseURL: "https://wetrack.onrender.com/app",
 });
 export const signin = async (data) => {
   const { data: response } = await api.post("/auth/login", data);

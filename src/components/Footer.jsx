@@ -8,7 +8,7 @@ const navigation = {
   ],
   support: [
     { name: "Email", href: "mailto:contact@rexslogistics.com" },
-    { name: "Whatsapp", href: "https://wa.me/+2348108932677" },
+    { name: "Whatsapp", href: "https://wa.me/+2348134929521" },
   ],
   company: [
     { name: "Home", href: "#home" },
